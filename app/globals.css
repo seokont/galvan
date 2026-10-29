@@ -488,9 +488,7 @@ body:has(.page-loader:not([hidden])) .screen-navigation {
 
 @media (hover: hover) {
   .model-card__tag:hover {
-    color: var(--foreground);
-    box-shadow: inset 0 -60px 0 var(--background);
-    transform: translateY(-2px);
+    background: transparent;
   }
 
   .model-card__tag:hover::before,

@@ -3,6 +3,7 @@ import SiteHeader from "./site-header";
 import Image from "next/image";
 import SiteFooter from "./site-footer";
 import ScreenNavigation from "./screen-navigation";
+import models from "./models.json";
 
 export default function Home() {
   return (
@@ -29,25 +30,25 @@ export default function Home() {
       </section>
       <div id="collections" className="scroll-anchor" aria-hidden="true" />
       <section className="photo-grid scroll-panel" aria-label="Model collections">
-        {Array.from({ length: 10 }, (_, index) => (
-          <article className="photo-grid__item" key={index} tabIndex={0}
+        {models.map((model, index) => (
+          <article className="photo-grid__item" key={model.file} tabIndex={0}
             aria-labelledby={`model-category-${index + 1}`}>
             <div className="model-card">
               <Image
-                src={`/assets/gallery/frame-${String(index + 1).padStart(2, "0")}.jpg`}
-                alt=""
+                src={`/assets/models/${model.file}`}
+                alt={`${model.name} wedding dress by Galvan Sposa`}
                 fill
                 sizes="(max-width: 600px) 50vw, (max-width: 1024px) 33vw, 20vw"
                 className="photo-grid__image"
               />
               <h2 className="model-card__title" id={`model-category-${index + 1}`}>
                 <span>Collection</span>
-                Model {String(index + 1).padStart(2, "0")}
+                {model.name.split(" ").slice(1).join(" ")}
               </h2>
               <div className="model-card__reveal" aria-hidden="true">
                 <div className="model-card__reveal-copy">
                   <span className="model-card__tag">Collection</span>
-                  <p>Model {String(index + 1).padStart(2, "0")}</p>
+                  <p>{model.name.split(" ").slice(1).join(" ")}</p>
                 </div>
               </div>
             </div>
