@@ -17,7 +17,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "MEDINSKIY",
+  title: "Atelier",
   description: "Timeless wedding stories, captured on film.",
 };
 

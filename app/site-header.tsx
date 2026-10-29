@@ -43,7 +43,7 @@ export default function SiteHeader() {
   return (
     <header className="site-header" ref={headerRef}>
       <a className="site-wordmark" href="#home" inert={open} onClick={() => setOpen(false)}>
-        MEDINSKIY<span>Wedding films</span>
+        Atelier<span>Wedding films</span>
       </a>
       <button className="menu-toggle" type="button" ref={buttonRef}
         aria-label={open ? "Close menu" : "Open menu"}

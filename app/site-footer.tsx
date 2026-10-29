@@ -55,8 +55,8 @@ export default function SiteFooter() {
       </div>
 
       <div className="footer-bottom">
-        <a className="footer-wordmark" href="#home" aria-label="MEDINSKIY — home">MEDINSKIY</a>
-        <span className="footer-copyright">© 2026 MEDINSKIY</span>
+        <a className="footer-wordmark" href="#home" aria-label="Atelier — home">Atelier</a>
+        <span className="footer-copyright">© 2026 Atelier</span>
         <a className="footer-back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
       </div>
     </footer>

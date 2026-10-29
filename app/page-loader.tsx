@@ -90,7 +90,7 @@ export default function PageLoader() {
 
   return (
     <div className="page-loader" ref={rootRef}>
-      <div className="page-loader__top"><span>MEDINSKIY</span><span>Wedding films</span></div>
+      <div className="page-loader__top"><span>Atelier</span><span>Wedding films</span></div>
       <div className="page-loader__center">
         <span className="page-loader__eyebrow">Stories that stay</span>
         <div className="page-loader__count" aria-hidden="true">
