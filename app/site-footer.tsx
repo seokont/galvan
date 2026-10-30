@@ -6,6 +6,7 @@ const groups = [
     title: "Explore",
     links: [
       { label: "Home", href: "/#home" },
+      { label: "About us", href: "/#about" },
       { label: "All collections", href: "/products" },
     ],
   },

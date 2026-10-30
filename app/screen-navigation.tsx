@@ -2,14 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const screens = ["Home", "Collections", "Contact"];
+const screens = ["Home", "Collections", "About", "Contact"];
 
 export default function ScreenNavigation() {
   const [active, setActive] = useState(0);
   const navigate = useRef<(index: number) => void>(() => {});
 
   useEffect(() => {
-    const anchors = [document.querySelector("#home"), document.querySelector("#collections"), document.querySelector("#footer-start")] as HTMLElement[];
+    const anchors = [document.querySelector("#home"), document.querySelector("#collections"), document.querySelector("#about"), document.querySelector("#footer-start")] as HTMLElement[];
     if (anchors.some((anchor) => !anchor)) return;
     const panels = [...document.querySelectorAll<HTMLElement>(".scroll-panel")];
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -80,7 +80,7 @@ export default function ScreenNavigation() {
     function onClick(event: MouseEvent) {
       const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href^="#"]') : null;
       const hash = link?.getAttribute("href");
-      const index = hash === "#home" ? 0 : hash === "#collections" ? 1 : hash === "#contacts" ? 2 : -1;
+      const index = hash === "#home" ? 0 : hash === "#collections" ? 1 : hash === "#about" ? 2 : hash === "#contacts" ? 3 : -1;
       if (index < 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
       // Let the menu release its scroll lock before moving to the selected screen.
