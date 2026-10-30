@@ -1181,11 +1181,11 @@ body:has(.page-loader:not([hidden])) .screen-navigation {
 .catalog-card { position: relative; display: block; aspect-ratio: 2 / 3; overflow: hidden; isolation: isolate; background: #e6dfd4; }
 .catalog-card img { object-fit: cover; filter: var(--film-filter); transition: transform 650ms cubic-bezier(.22,1,.36,1); }
 .catalog-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgb(23 22 19 / 60%)); pointer-events: none; }
-.catalog-card__copy { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding: clamp(16px, 2vw, 32px); color: var(--background); }
+.catalog-card__copy { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding: clamp(16px, 2vw, 32px); color: var(--background); text-shadow: 0 1px 3px rgb(0 0 0 / 40%), 0 2px 10px rgb(0 0 0 / 20%); }
 .catalog-card__code { display: block; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
 .catalog-card h2 { margin-top: 6px; font-size: clamp(28px, 3vw, 46px); line-height: 1.1; }
-.catalog-card__action { display: inline-block; margin-top: 14px; padding-bottom: 4px; font-size: 10px; border-bottom: 1px solid currentColor; }
-.catalog-card__action span { display: inline-block; margin-left: 10px; transition: transform 250ms ease; }
+.catalog-card__action { display: inline-block; margin-top: 16px; padding: 8px 0; font-size: 14px; font-weight: 500; border-bottom: 1px solid currentColor; }
+.catalog-card__action span { display: inline-block; margin-left: 14px; font-size: 20px; line-height: 1; transition: transform 250ms ease; }
 .catalog-card:focus-visible { outline: 2px solid var(--accent); outline-offset: -5px; }
 .catalog-source-note { padding: 20px; text-align: center; font-size: 10px; color: #777167; border-bottom: 1px solid rgb(36 35 33 / 15%); }
 @media (hover: hover) {
@@ -1210,7 +1210,8 @@ body:has(.page-loader:not([hidden])) .screen-navigation {
   .catalog-card__copy { padding: 14px; }
   .catalog-card h2 { font-size: clamp(25px, 7vw, 34px); }
   .catalog-card__code { font-size: 7px; letter-spacing: .06em; }
-  .catalog-card__action { font-size: 9px; margin-top: 10px; }
+  .catalog-card__action { font-size: 12px; margin-top: 12px; padding: 7px 0; }
+  .catalog-card__action span { font-size: 18px; margin-left: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .catalog-card img, .catalog-card__action span, .catalog-filters button { transition: none; }
