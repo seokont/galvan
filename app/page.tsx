@@ -68,7 +68,7 @@ export default function Home() {
           <p>Founded in Italy in the late 1980s, the group combines bridal craftsmanship with modern design. Each collection has its own expression of femininity, with a shared attention to quality and detail.</p>
           <div className="home-about__brands" aria-label="Brands"><span>Galvan Sposa</span><span>Serena Bridal</span><span>Aveline Bridal</span></div>
           <Link href="/products" className="contact-collection-link">Explore the collection <span aria-hidden="true">↗</span></Link>
-          <a className="home-about__source" href="https://galvansposa.it/about/" target="_blank" rel="noopener noreferrer">Discover Galvan Sposa Group ↗</a>
+          <Link className="home-about__source" href="/about">Discover our story ↗</Link>
         </div>
       </section>
       <div id="footer-start" className="scroll-anchor" aria-hidden="true" />

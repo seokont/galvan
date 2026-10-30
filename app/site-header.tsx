@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-export default function SiteHeader({ catalog = false, contact = false }: { catalog?: boolean; contact?: boolean }) {
+export default function SiteHeader({ catalog = false, contact = false, about = false }: { catalog?: boolean; contact?: boolean; about?: boolean }) {
   const [open, setOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -54,7 +54,8 @@ export default function SiteHeader({ catalog = false, contact = false }: { catal
       <nav id="site-menu" className="site-nav" aria-label="Main navigation"
         data-open={open} aria-hidden={!open} inert={!open}>
         <a href={catalog ? "/#home" : "#home"} aria-current={!catalog ? "page" : undefined} onClick={() => setOpen(false)}>Home</a>
-        <Link href="/products" aria-current={catalog && !contact ? "page" : undefined} onClick={() => setOpen(false)}>Collections</Link>
+        <Link href="/products" aria-current={catalog && !contact && !about ? "page" : undefined} onClick={() => setOpen(false)}>Collections</Link>
+        <Link href="/about" aria-current={about ? "page" : undefined} onClick={() => setOpen(false)}>About</Link>
         <Link href="/contact" aria-current={contact ? "page" : undefined} onClick={() => setOpen(false)}>Contact</Link>
       </nav>
     </header>
