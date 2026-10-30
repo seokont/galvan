@@ -36,6 +36,10 @@ export default function CustomCursor() {
     }
 
     function move(event: PointerEvent) {
+      if (event.target instanceof Element && event.target.closest('[data-magnifying="true"]')) {
+        hide();
+        return;
+      }
       if (!media.matches || event.pointerType !== "mouse") {
         hide();
         return;
@@ -51,7 +55,7 @@ export default function CustomCursor() {
       }
       const element = event.target instanceof Element ? event.target : null;
       cursor!.dataset.mode = element?.closest("a, button, input, select, textarea, [role='button']")
-        ? "link" : element?.closest(".photo-grid__item") ? "card" : "default";
+        ? "link" : element?.closest(".photo-grid__item, .catalog-card") ? "card" : "default";
       if (!frame) frame = requestAnimationFrame(draw);
     }
 

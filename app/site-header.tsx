@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
-export default function SiteHeader() {
+export default function SiteHeader({ catalog = false, contact = false }: { catalog?: boolean; contact?: boolean }) {
   const [open, setOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -42,7 +43,7 @@ export default function SiteHeader() {
 
   return (
     <header className="site-header" ref={headerRef}>
-      <a className="site-wordmark" href="#home" inert={open} onClick={() => setOpen(false)}>
+      <a className="site-wordmark" href={catalog ? "/#home" : "#home"} inert={open} onClick={() => setOpen(false)}>
         Atelier<span>Wedding films</span>
       </a>
       <button className="menu-toggle" type="button" ref={buttonRef}
@@ -52,9 +53,9 @@ export default function SiteHeader() {
       </button>
       <nav id="site-menu" className="site-nav" aria-label="Main navigation"
         data-open={open} aria-hidden={!open} inert={!open}>
-        <a href="#home" aria-current="page" onClick={() => setOpen(false)}>Home</a>
-        <a href="#about" onClick={() => setOpen(false)}>About</a>
-        <a href="#contacts" onClick={() => setOpen(false)}>Contact</a>
+        <a href={catalog ? "/#home" : "#home"} aria-current={!catalog ? "page" : undefined} onClick={() => setOpen(false)}>Home</a>
+        <Link href="/products" aria-current={catalog && !contact ? "page" : undefined} onClick={() => setOpen(false)}>Collections</Link>
+        <Link href="/contact" aria-current={contact ? "page" : undefined} onClick={() => setOpen(false)}>Contact</Link>
       </nav>
     </header>
   );

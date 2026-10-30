@@ -1,0 +1,522 @@
+[
+    {
+        "specs":  [
+                      {
+                          "value":  "Lace",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Crepe",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "ivory, nude+ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "V-Neck",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "Fit-n-flare",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Medium",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Strap",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Covered buttons",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Romantic",
+                          "label":  "Dress style"
+                      },
+                      {
+                          "value":  "34-58",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0028",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0028a-Madelyn-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0028b-Madelyn-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0028c-Madelyn-scaled.jpg"
+                   ]
+    },
+    {
+        "specs":  [
+                      {
+                          "value":  "Satin",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Satin",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "Scoop",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "Fit-n-flare",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Medium",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Sleeveless",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Zipper closure",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Slit",
+                          "label":  "Embellishment"
+                      },
+                      {
+                          "value":  "34-58",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0030",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0030a-MaribelG0040-Scarf-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0030c-MaribelG0040-Scarf-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0030d-MaribelG0040-Scarf-scaled.jpg"
+                   ]
+    },
+    {
+        "specs":  [
+                      {
+                          "value":  "Satin",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Satin",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "ivory, nude+ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "Sweetheart",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "Fit-n-flare",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Medium",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Detachable",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Zipper closure",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Slit",
+                          "label":  "Embellishment"
+                      },
+                      {
+                          "value":  "Minimalistic",
+                          "label":  "Dress style"
+                      },
+                      {
+                          "value":  "34-58",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0026",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0026a-Matilda-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0026b-Matilda-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0026c-Matilda-scaled.jpg"
+                   ]
+    },
+    {
+        "specs":  [
+                      {
+                          "value":  "Chantilly",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Chantilly",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "capp+ivory, ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "Square",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "A-Line",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Medium",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Strap",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Low back",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Vintage",
+                          "label":  "Dress style"
+                      },
+                      {
+                          "value":  "34-58",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0027",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0027a-MayaG0039-Choker-necklace-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0027b-MayaG0039-Choker-necklace-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0027c-MayaG0039-Choker-necklace-scaled.jpg"
+                   ]
+    },
+    {
+        "specs":  [
+                      {
+                          "value":  "Chantilly",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Chantilly",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "ivory, nude+ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "Sweetheart",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "Princess",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Medium",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Sleeveless",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Zipper closure",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Beading",
+                          "label":  "Embellishment"
+                      },
+                      {
+                          "value":  "Romantic",
+                          "label":  "Dress style"
+                      },
+                      {
+                          "value":  "34-58",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0024",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0024a-Micaela-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0024b-Micaela-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0024c-Micaela-scaled.jpg"
+                   ]
+    },
+    {
+        "specs":  [
+                      {
+                          "value":  "Lace",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Lace",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "capp+nude+ivory, ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "Halter",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "Fit-n-flare",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Medium",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Sleeveless",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Covered buttons",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Glamourus",
+                          "label":  "Dress style"
+                      },
+                      {
+                          "value":  "34-56",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0031",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0031a-Michelle-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0031b-Michelle-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0031c-Michelle-scaled.jpg"
+                   ]
+    },
+    {
+        "specs":  [
+                      {
+                          "value":  "Corded richelieu",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Corded richelieu",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "capp+nude+ivory, ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "Sweetheart",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "Fit-n-flare",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Medium",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Sleeveless",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Zipper closure",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Glamourus",
+                          "label":  "Dress style"
+                      },
+                      {
+                          "value":  "34-58",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0029",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0029a-Mila-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0029b-Mila-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0029c-MilaV10-veil-scaled.jpg"
+                   ]
+    },
+    {
+        "specs":  [
+                      {
+                          "value":  "Chantilly",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Chantilly",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "ivory, nude+ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "Scoop",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "A-Line",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Detailed",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Sleeveless",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Zipper closure",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Slit",
+                          "label":  "Embellishment"
+                      },
+                      {
+                          "value":  "Romantic",
+                          "label":  "Dress style"
+                      },
+                      {
+                          "value":  "34-58",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0025",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0025a-Miriam-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0025b-Miriam-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/10/G0025c-Miriam-scaled.jpg"
+                   ]
+    },
+    {
+        "specs":  [
+                      {
+                          "value":  "nude+ivory",
+                          "label":  "Color on photo"
+                      },
+                      {
+                          "value":  "ivory, nude+ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "Lace",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Tulle",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "V-Neck",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "Princess",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Medium",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Strap",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Zipper closure",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Classic",
+                          "label":  "Dress style"
+                      },
+                      {
+                          "value":  "34-56",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0001",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/03/G0001a-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/03/G0001b-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/03/G0001c-scaled.jpg"
+                   ]
+    },
+    {
+        "specs":  [
+                      {
+                          "value":  "ivory",
+                          "label":  "Color on photo"
+                      },
+                      {
+                          "value":  "ivory",
+                          "label":  "Available colors"
+                      },
+                      {
+                          "value":  "Mikado",
+                          "label":  "Fabric of bodice"
+                      },
+                      {
+                          "value":  "Mikado",
+                          "label":  "Fabric of skirt"
+                      },
+                      {
+                          "value":  "V-Neck",
+                          "label":  "Neckline"
+                      },
+                      {
+                          "value":  "A-Line",
+                          "label":  "Silhouette"
+                      },
+                      {
+                          "value":  "Medium",
+                          "label":  "Train"
+                      },
+                      {
+                          "value":  "Strap",
+                          "label":  "Sleeves"
+                      },
+                      {
+                          "value":  "Zipper closure",
+                          "label":  "Back details"
+                      },
+                      {
+                          "value":  "Minimalistic",
+                          "label":  "Dress style"
+                      },
+                      {
+                          "value":  "34-56",
+                          "label":  "Size (EU)"
+                      }
+                  ],
+        "code":  "g0002",
+        "images":  [
+                       "https://galvansposa.it/wp-content/uploads/2026/03/G0002a-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/03/G0002b-scaled.jpg",
+                       "https://galvansposa.it/wp-content/uploads/2026/03/G0002c-scaled.jpg"
+                   ]
+    }
+]

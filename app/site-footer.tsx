@@ -1,16 +1,18 @@
+import BrideAnimation from "./bride-animation";
+import Link from "next/link";
+
 const groups = [
   {
     title: "Explore",
     links: [
-      { label: "Home", href: "#home" },
-      { label: "All collections", href: "#collections" },
+      { label: "Home", href: "/#home" },
+      { label: "All collections", href: "/products" },
     ],
   },
   {
     title: "Collections",
     links: [
-      { label: "Models 01–05", href: "#model-category-1" },
-      { label: "Models 06–10", href: "#model-category-6" },
+      { label: "Wedding dresses", href: "/products" },
     ],
   },
 ];
@@ -25,13 +27,14 @@ export default function SiteFooter() {
               <summary>{group.title}<span aria-hidden="true">+</span></summary>
               <ul>
                 {group.links.map((link) => (
-                  <li key={link.href}><a href={link.href}>{link.label}</a></li>
+                  <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
                 ))}
               </ul>
             </details>
           ))}
           <details className="footer-group">
             <summary>Get in touch<span aria-hidden="true">+</span></summary>
+            <Link href="/contact">Contact Atelier ↗</Link>
             <p className="footer-muted">Contact details coming soon.</p>
           </details>
           <details className="footer-group">
@@ -52,10 +55,11 @@ export default function SiteFooter() {
           </div>
           <p className="footer-note" id="footer-signup-note">Newsletter sign-up is not available yet.</p>
         </section>
+        <BrideAnimation />
       </div>
 
       <div className="footer-bottom">
-        <a className="footer-wordmark" href="#home" aria-label="Atelier — home">Atelier</a>
+        <Link className="footer-wordmark" href="/#home" aria-label="Atelier — home">Atelier</Link>
         <span className="footer-copyright">© 2026 Atelier</span>
         <a className="footer-back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
       </div>

@@ -1,62 +1,72 @@
 [
-  {
-    "name": "G0028 Madelyn",
-    "source": "https://galvansposa.it/product/g0028/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/10/G0028a-Madelyn-1500x2250.jpg",
-    "file": "g0028.jpg"
-  },
-  {
-    "name": "G0030 Maribel",
-    "source": "https://galvansposa.it/product/g0030/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/10/G0030a-MaribelG0040-Scarf-1500x2250.jpg",
-    "file": "g0030.jpg"
-  },
-  {
-    "name": "G0026 Matilda",
-    "source": "https://galvansposa.it/product/g0026/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/10/G0026a-Matilda-1500x2250.jpg",
-    "file": "g0026.jpg"
-  },
-  {
-    "name": "G0027 Maya",
-    "source": "https://galvansposa.it/product/g0027/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/10/G0027a-MayaG0039-Choker-necklace-1500x2250.jpg",
-    "file": "g0027.jpg"
-  },
-  {
-    "name": "G0024 Micaela",
-    "source": "https://galvansposa.it/product/g0024/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/10/G0024a-Micaela-1500x2250.jpg",
-    "file": "g0024.jpg"
-  },
-  {
-    "name": "G0031 Michelle",
-    "source": "https://galvansposa.it/product/g0031/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/10/G0031a-Michelle-1500x2250.jpg",
-    "file": "g0031.jpg"
-  },
-  {
-    "name": "G0029 Mila",
-    "source": "https://galvansposa.it/product/g0029/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/10/G0029a-Mila-1500x2250.jpg",
-    "file": "g0029.jpg"
-  },
-  {
-    "name": "G0025 Miriam",
-    "source": "https://galvansposa.it/product/g0025/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/10/G0025a-Miriam-1500x2250.jpg",
-    "file": "g0025.jpg"
-  },
-  {
-    "name": "G0001 Giada",
-    "source": "https://galvansposa.it/product/g0001/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/03/G0001a-1500x2250.jpg",
-    "file": "g0001.jpg"
-  },
-  {
-    "name": "G0002 Gaia",
-    "source": "https://galvansposa.it/product/g0002/",
-    "image": "https://galvansposa.it/wp-content/uploads/2026/03/G0002a-1500x2250.jpg",
-    "file": "g0002.jpg"
-  }
+    {
+        "name":  "G0028 Madelyn",
+        "source":  "https://galvansposa.it/product/g0028/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/10/G0028a-Madelyn-1500x2250.jpg",
+        "file":  "g0028.jpg",
+        "category":  "Fit-n-flare"
+    },
+    {
+        "name":  "G0030 Maribel",
+        "source":  "https://galvansposa.it/product/g0030/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/10/G0030a-MaribelG0040-Scarf-1500x2250.jpg",
+        "file":  "g0030.jpg",
+        "category":  "Fit-n-flare"
+    },
+    {
+        "name":  "G0026 Matilda",
+        "source":  "https://galvansposa.it/product/g0026/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/10/G0026a-Matilda-1500x2250.jpg",
+        "file":  "g0026.jpg",
+        "category":  "Fit-n-flare"
+    },
+    {
+        "name":  "G0027 Maya",
+        "source":  "https://galvansposa.it/product/g0027/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/10/G0027a-MayaG0039-Choker-necklace-1500x2250.jpg",
+        "file":  "g0027.jpg",
+        "category":  "A-Line"
+    },
+    {
+        "name":  "G0024 Micaela",
+        "source":  "https://galvansposa.it/product/g0024/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/10/G0024a-Micaela-1500x2250.jpg",
+        "file":  "g0024.jpg",
+        "category":  "Princess"
+    },
+    {
+        "name":  "G0031 Michelle",
+        "source":  "https://galvansposa.it/product/g0031/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/10/G0031a-Michelle-1500x2250.jpg",
+        "file":  "g0031.jpg",
+        "category":  "Fit-n-flare"
+    },
+    {
+        "name":  "G0029 Mila",
+        "source":  "https://galvansposa.it/product/g0029/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/10/G0029a-Mila-1500x2250.jpg",
+        "file":  "g0029.jpg",
+        "category":  "Fit-n-flare"
+    },
+    {
+        "name":  "G0025 Miriam",
+        "source":  "https://galvansposa.it/product/g0025/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/10/G0025a-Miriam-1500x2250.jpg",
+        "file":  "g0025.jpg",
+        "category":  "A-Line"
+    },
+    {
+        "name":  "G0001 Giada",
+        "source":  "https://galvansposa.it/product/g0001/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/03/G0001a-1500x2250.jpg",
+        "file":  "g0001.jpg",
+        "category":  "Princess"
+    },
+    {
+        "name":  "G0002 Gaia",
+        "source":  "https://galvansposa.it/product/g0002/",
+        "image":  "https://galvansposa.it/wp-content/uploads/2026/03/G0002a-1500x2250.jpg",
+        "file":  "g0002.jpg",
+        "category":  "A-Line"
+    }
 ]
