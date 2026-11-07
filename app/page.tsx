@@ -22,7 +22,19 @@ export default function Home() {
       <div id="about" className="scroll-anchor" aria-hidden="true" />
       <section className="home-about scroll-panel" aria-labelledby="home-about-title">
         <div className="home-about__image">
-          <Image src="/assets/galvan-sposa-group.jpg" alt="Bridal collections from Galvan Sposa Group" fill sizes="(max-width: 900px) 100vw, 55vw" />
+          {[
+            { name: "Galvan Sposa", image: "galvan.jpg" },
+            { name: "Aveline Bridal", image: "aveline.jpg" },
+            { name: "Serena Bridal", image: "serena.jpg" },
+          ].map((brand) => (
+            <figure className="home-about__portrait" key={brand.image}>
+              <div className="home-about__portrait-frame">
+                <Image src={`/assets/about/${brand.image}`} alt={`${brand.name} bridal collection`}
+                  fill unoptimized />
+              </div>
+              <figcaption>{brand.name}</figcaption>
+            </figure>
+          ))}
         </div>
         <div className="home-about__copy">
           <p className="contact-eyebrow">About us · Galvan Sposa Group</p>
