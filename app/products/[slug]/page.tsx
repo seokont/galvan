@@ -1,50 +1,57 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import { notFound } from "next/navigation";
-import models from "../../models.json";
-import details from "../../product-details.json";
-import SiteHeader from "../../site-header";
-import SiteFooter from "../../site-footer";
-import ProductDetail from "./product-detail";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { notFound } from 'next/navigation';
+import { getCatalog, getProduct } from '../../catalog-server';
+import SiteHeader from '../../site-header';
+import SiteFooter from '../../site-footer';
+import CatalogCard from '../catalog-card';
+import ProductDetail from './product-detail';
 
 export const instant = false;
 
-export function generateStaticParams() {
-  return models.map((model) => ({ slug: model.file.replace(".jpg", "") }));
+type Props = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  try {
+    const product = await getProduct(slug);
+    return { title: product ? product.name + ' · ' + product.brand.name + ' | Atelier' : 'Piece not found | Atelier' };
+  } catch {
+    return { title: 'Collection | Atelier' };
+  }
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+async function ProductContent({ params }: Props) {
   const { slug } = await params;
-  const model = models.find((item) => item.file === `${slug}.jpg`);
-  return { title: model ? `${model.name} wedding dress | Atelier` : "Dress not found | Atelier" };
+  let product;
+  try {
+    product = await getProduct(slug);
+  } catch {
+    return <div className="catalog-message" role="alert"><h1>The collection is temporarily unavailable.</h1><Link href="/products">Return to collections</Link></div>;
+  }
+  if (!product) notFound();
+  const related = await getCatalog(new URLSearchParams({ brand: product.brand.slug, limit: '5' })).catch(() => null);
+  return <>
+    <nav className="product-breadcrumb" aria-label="Breadcrumb">
+      <Link href="/products">Collections</Link><span aria-hidden="true">/</span>
+      <Link href={'/products?brand=' + product.brand.slug}>{product.brand.name}</Link><span aria-hidden="true">/</span>
+      <span aria-current="page">{product.name}</span>
+    </nav>
+    <ProductDetail key={product.id} product={product} />
+    {related && related.items.some(p => p.id !== product.id) && <section className="product-related" aria-labelledby="related-title">
+      <div className="product-related__heading"><h2 id="related-title">You may also love</h2><Link href={'/products?brand=' + product.brand.slug}>Explore the brand ↗</Link></div>
+      <div className="product-related__grid">
+        {related.items.filter(p => p.id !== product.id).slice(0, 4).map(p => <CatalogCard key={p.id} product={p} />)}
+      </div>
+    </section>}
+  </>;
 }
 
-export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const model = models.find((item) => item.file === `${slug}.jpg`);
-  const detail = details.find((item) => item.code === slug);
-  if (!model || !detail) notFound();
-  return (
-    <main id="home" className="catalog-page product-page">
-      <SiteHeader catalog />
-      <nav className="product-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/products">Wedding dresses</Link><span aria-hidden="true">/</span>
-        <span aria-current="page">{model.name.split(" ").slice(1).join(" ")}</span>
-      </nav>
-      <ProductDetail model={model} detail={detail} />
-      <section className="product-related" aria-labelledby="related-title">
-        <div className="product-related__heading"><h2 id="related-title">You may also love</h2><Link href="/products">Explore all dresses ↗</Link></div>
-        <div className="product-related__grid">
-          {models.filter((item) => item.file !== model.file).slice(0, 4).map((item) => (
-            <Link className="catalog-card" href={`/products/${item.file.replace(".jpg", "")}`} key={item.file}>
-              <Image src={`/assets/models/${item.file}`} alt={item.name} fill sizes="(max-width: 600px) 50vw, 25vw" />
-              <div className="catalog-card__copy"><span className="catalog-card__code">{item.category}</span><h2>{item.name.split(" ").slice(1).join(" ")}</h2></div>
-            </Link>
-          ))}
-        </div>
-      </section>
-      <SiteFooter />
-    </main>
-  );
+export default function ProductPage({ params }: Props) {
+  return <main id="home" className="catalog-page product-page">
+    <SiteHeader catalog />
+    <Suspense fallback={<div className="catalog-message" role="status">Loading piece…</div>}><ProductContent params={params} /></Suspense>
+    <SiteFooter />
+  </main>;
 }

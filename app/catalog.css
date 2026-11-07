@@ -1,0 +1,28 @@
+.catalog-toolbar--odoo { align-items: flex-end; }
+.home-collection-status { grid-column: 1 / -1; grid-row: 1 / -1; min-height: 40vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 32px; text-align: center; font-size: 13px; }
+.home-collection-status a { border-bottom: 1px solid currentColor; padding: 10px 0; }
+.catalog-selects { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; flex: 1; min-width: 0; }
+.catalog-selects label { display: grid; gap: 7px; min-width: 150px; max-width: 360px; flex: 1; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #625c53; }
+.catalog-selects select { width: 100%; min-height: 44px; padding: 10px 28px 10px 12px; border: 1px solid #c9c0b2; background: var(--background); color: var(--foreground); font: inherit; font-size: 12px; letter-spacing: 0; text-transform: none; border-radius: 0; }
+.catalog-selects select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.catalog-reset { min-height: 44px; padding: 8px; font-size: 11px; text-decoration: underline; }
+.catalog-message { padding: clamp(60px, 10vw, 160px) 24px; text-align: center; min-height: 35vh; }
+.catalog-message p { margin-bottom: 20px; }
+.catalog-message button, .catalog-message a { display: inline-block; padding: 12px 18px; border: 1px solid currentColor; margin-top: 16px; }
+.catalog-pagination { display: flex; justify-content: center; align-items: center; gap: 28px; padding: 40px 20px; font-size: 12px; }
+.catalog-pagination button { padding: 12px 18px; border: 1px solid #b8ad9b; min-height: 44px; }
+.catalog-pagination button:disabled { opacity: .35; cursor: default; }
+.catalog-no-photo, .product-no-photo { display: flex; align-items: center; justify-content: center; height: 100%; min-height: 200px; padding: 24px; font-size: 12px; color: #746d63; background: #e6dfd4; }
+.product-no-photo { min-height: 65vh; }
+.product-collection-links { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; font-size: 11px; color: #746d63; }
+.product-collection-links a { border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+.product-sizes div button { width: auto; min-width: 50px; padding: 10px; }
+.product-intro { white-space: pre-line; overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .catalog-selects { gap: 10px; }
+  .catalog-selects label { flex: 1 1 40%; min-width: 0; max-width: none; }
+  .catalog-selects label:nth-child(3) { flex-basis: 100%; }
+  .catalog-toolbar--odoo { padding: 14px 12px; }
+  .catalog-pagination { gap: 12px; font-size: 10px; }
+  .catalog-pagination button { padding: 10px; }
+}

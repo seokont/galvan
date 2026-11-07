@@ -1,8 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export default function CustomCursor() {
+  const pathname = usePathname();
+  return pathname.startsWith('/admin') ? null : <PublicCursor />;
+}
+
+function PublicCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

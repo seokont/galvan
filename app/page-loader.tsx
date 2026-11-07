@@ -1,8 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export default function PageLoader() {
+  const pathname = usePathname();
+  return pathname === '/' || pathname.startsWith('/admin') ? null : <PublicPageLoader />;
+}
+
+function PublicPageLoader() {
   const rootRef = useRef<HTMLDivElement>(null);
   const skipRef = useRef<(() => void) | null>(null);
 

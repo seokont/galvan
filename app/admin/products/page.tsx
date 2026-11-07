@@ -1,0 +1,19 @@
+'use client';
+import {useEffect,useState,type FormEvent} from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import AdminShell from '../admin-shell';
+import {adminApi} from '../admin-api';
+import type {AdminMetadata,AdminProductPage} from '../admin-types';
+function ProductList() {
+  const [metadata,setMetadata]=useState<AdminMetadata|null>(null);
+  const [filters,setFilters]=useState({q:'',brand:'',visibility:'all',page:1});
+  const [input,setInput]=useState('');const [error,setError]=useState('');const [retry,setRetry]=useState(0);
+  const query=new URLSearchParams({...filters,page:String(filters.page),limit:'24'}).toString();
+  const [result,setResult]=useState<{query:string;data:AdminProductPage}|null>(null);
+  useEffect(()=>{const abort=new AbortController();Promise.all([adminApi<AdminMetadata>('metadata',{signal:abort.signal}),adminApi<AdminProductPage>('products?'+query,{signal:abort.signal})]).then(([meta,data])=>{if(!abort.signal.aborted){setMetadata(meta);setResult({query,data});setError('');}}).catch(e=>{if(!abort.signal.aborted)setError(e.message);});return()=>abort.abort();},[query,retry]);
+  const data=result?.query===query?result.data:null;
+  function search(e:FormEvent){e.preventDefault();setFilters(f=>({...f,q:input,page:1}));}
+  return <><div className="admin-page-title"><div><p className="admin-eyebrow">Каталог Atelier</p><h1>Товары</h1></div><span>{data?data.total+' товаров':'Загружаем…'}</span></div><form className="admin-filters" onSubmit={search}><label className="admin-search">Поиск<input value={input} onChange={e=>setInput(e.target.value)} placeholder="Название, артикул или ID" maxLength={100}/></label><button type="submit">Найти</button><label>Бренд<select value={filters.brand} onChange={e=>setFilters(f=>({...f,brand:e.target.value,page:1}))}><option value="">Все бренды</option>{metadata?.brands.map(b=><option key={b.slug} value={b.slug}>{b.name}</option>)}</select></label><label>Публикация<select value={filters.visibility} onChange={e=>setFilters(f=>({...f,visibility:e.target.value,page:1}))}><option value="all">Все товары</option><option value="visible">На сайте</option><option value="hidden">Скрытые</option></select></label></form>{error?<div className="admin-error" role="alert">{error} <button onClick={()=>setRetry(n=>n+1)}>Повторить</button></div>:!data?<p role="status">Загружаем товары…</p>:<><div className="admin-table-scroll"><table className="admin-table"><thead><tr><th>Товар</th><th>Бренд</th><th>Публикация</th><th>Правки</th><th/></tr></thead><tbody>{data.items.map(p=><tr key={p.id}><td><div className="admin-product-cell">{p.images[0]?<Image src={'/api/admin/images/'+p.images[0]} alt="" width={48} height={64} unoptimized/>:<span className="admin-image-placeholder">—</span>}<div><Link href={'/admin/products/'+p.id}>{p.name}</Link><small>#{p.id}{p.sku?' · '+p.sku:''}</small></div></div></td><td>{p.brandName}</td><td><span className={'admin-badge '+(p.visible?'admin-badge--visible':'')}>{p.visible?'На сайте':'Скрыт'}</span></td><td>{p.overriddenFields.length?<span className="admin-edited">{p.overriddenFields.length} полей вручную</span>:'Из Odoo'}</td><td><Link className="admin-edit-link" href={'/admin/products/'+p.id}>Редактировать →</Link></td></tr>)}</tbody></table>{!data.items.length&&<p className="admin-empty">Товары не найдены.</p>}</div><nav className="admin-pagination" aria-label="Страницы товаров"><button disabled={filters.page<=1} onClick={()=>setFilters(f=>({...f,page:f.page-1}))}>← Назад</button><span>{data.pages?'Страница '+data.page+' из '+data.pages:'Нет результатов'}</span><button disabled={filters.page>=data.pages} onClick={()=>setFilters(f=>({...f,page:f.page+1}))}>Далее →</button></nav></>}</>;
+}
+export default function AdminProducts(){return <AdminShell><ProductList/></AdminShell>;}

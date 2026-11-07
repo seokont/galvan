@@ -50,7 +50,7 @@ export default function ProductPhoto({ src, name, index, onOpen }: Props) {
     <button className="product-gallery__photo" ref={rootRef} type="button"
       aria-label={`Enlarge photo ${index + 1} of ${name}`} onClick={() => { hide(); onOpen(); }}
       onPointerMove={move} onPointerLeave={hide} onPointerCancel={hide} onBlur={hide}>
-      <Image src={src} alt={`${name} wedding dress, view ${index + 1}`} fill
+      <Image src={src} alt={`${name}, view ${index + 1}`} fill unoptimized={src.startsWith('/api/')}
         sizes="(max-width: 900px) 100vw, 29vw" preload={index === 0} loading={index < 2 ? "eager" : "lazy"} />
       <span className="product-magnifier" ref={lensRef} aria-hidden="true"><span>2.5×</span></span>
       <span className="product-zoom-label" aria-hidden="true">＋</span>
