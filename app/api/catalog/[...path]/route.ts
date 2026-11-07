@@ -24,7 +24,18 @@ export async function GET(request: Request, { params }: { params: Promise<{ path
       if (value) headers.set(key, value);
     }
     return new Response(upstream.body, { status: 200, headers });
-  } catch {
-    return Response.json({ message: 'Catalog is temporarily unavailable' }, { status: 503 });
+  } catch (error) {
+    const cause = error instanceof Error ? (error as Error & { cause?: { code?: unknown } }).cause : undefined;
+    const knownCodes = ['ECONNREFUSED', 'ENOTFOUND', 'EAI_AGAIN', 'ETIMEDOUT', 'UND_ERR_CONNECT_TIMEOUT', 'CERT_HAS_EXPIRED', 'UNABLE_TO_VERIFY_LEAF_SIGNATURE', 'DEPTH_ZERO_SELF_SIGNED_CERT', 'ERR_TLS_CERT_ALTNAME_INVALID'];
+    const code = typeof cause?.code === 'string' && knownCodes.includes(cause.code)
+      ? cause.code : error instanceof TypeError && error.message === 'Invalid URL' ? 'INVALID_BACKEND_URL'
+      : error instanceof Error && error.name === 'TimeoutError' ? 'BACKEND_TIMEOUT' : 'BACKEND_FETCH_FAILED';
+    let target = 'invalid';
+    try { target = new URL(catalogBackendUrl('')).hostname; } catch {}
+    console.error('Catalog backend connection failed', { code, target, configured: Boolean(process.env.BACKEND_URL) });
+    return Response.json({ message: 'Catalog is temporarily unavailable' }, {
+      status: 503,
+      headers: { 'Cache-Control': 'no-store', 'X-Atelier-Backend-Error': code, 'X-Atelier-Backend-Configured': process.env.BACKEND_URL ? 'yes' : 'no' },
+    });
   }
 }
