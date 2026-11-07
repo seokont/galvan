@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useId } from "react";
 
-export default function BrideAnimation() {
-  const rootRef = useRef<HTMLDivElement>(null);
+export default function BrideAnimation({ compact = false }: { compact?: boolean }) {
+  const id = useId();
+  const rootRef = useRef<HTMLDivElement & HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
   const [paused, setPaused] = useState(false);
 
@@ -13,12 +14,14 @@ export default function BrideAnimation() {
     return () => observer.disconnect();
   }, []);
 
+  const Root = compact ? "span" : "div";
+
   return (
-    <div className="footer-dance" ref={rootRef} data-playing={visible && !paused}>
-      <svg className="bride-illustration" viewBox="0 0 240 260" role="img" aria-labelledby="bride-animation-title">
-        <title id="bride-animation-title">A little bride twirling in her wedding dress</title>
+    <Root className="footer-dance" ref={rootRef} data-playing={visible && !paused}>
+      <svg className="bride-illustration" viewBox="0 0 240 260" role="img" aria-labelledby={`${id}-title`}>
+        <title id={`${id}-title`}>A little bride twirling in her wedding dress</title>
         <defs>
-          <linearGradient id="bridal-silk" x1="0" y1="0" x2="1" y2="0">
+          <linearGradient id={`${id}-silk`} x1="0" y1="0" x2="1" y2="0">
             <stop stopColor="#e3d9c9" /><stop offset=".35" stopColor="#fffdf7" />
             <stop offset=".65" stopColor="#f6efe3" /><stop offset="1" stopColor="#d8c9b6" />
           </linearGradient>
@@ -45,7 +48,7 @@ export default function BrideAnimation() {
             <path d="M107 92Q120 96 132 92" fill="none" stroke="#ad9574" strokeWidth="2" />
           </g>
           <g className="bride-skirt">
-            <path d="M108 94Q94 127 75 155Q59 187 39 221Q119 244 201 220Q167 184 152 150Q140 119 132 94Z" fill="url(#bridal-silk)" stroke="#bca98d" strokeWidth=".8" />
+            <path d="M108 94Q94 127 75 155Q59 187 39 221Q119 244 201 220Q167 184 152 150Q140 119 132 94Z" fill={`url(#${id}-silk)`} stroke="#bca98d" strokeWidth=".8" />
             <path d="M110 100Q98 165 67 224M116 100Q111 175 104 232M124 100Q133 179 144 231M130 100Q151 165 180 224" fill="none" stroke="#c6b69e" strokeWidth=".8" opacity=".7" />
             <path d="M53 215Q119 238 188 215M48 221Q121 243 195 221" fill="none" stroke="#bba88c" strokeWidth=".65" strokeDasharray="2 4" />
             <path d="M101 119L106 124L101 129L96 124ZM139 139L144 144L139 149L134 144ZM89 172L94 177L89 182L84 177ZM152 195L157 200L152 205L147 200Z" fill="#fffdf8" stroke="#c5b49a" strokeWidth=".55" />
@@ -56,9 +59,9 @@ export default function BrideAnimation() {
           <circle cx="47" cy="151" r="1.5" /><circle cx="193" cy="83" r="1" />
         </g>
       </svg>
-      <button className="footer-dance__toggle" type="button" aria-pressed={paused} onClick={() => setPaused(!paused)}>
+      {!compact && <button className="footer-dance__toggle" type="button" aria-pressed={paused} onClick={() => setPaused(!paused)}>
         {paused ? "Play animation" : "Pause animation"}
-      </button>
-    </div>
+      </button>}
+    </Root>
   );
 }

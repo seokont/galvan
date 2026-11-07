@@ -9,13 +9,13 @@
 .bridal-hero__subject { position: absolute; z-index: 3; left: 50%; bottom: 1%; height: 87%; aspect-ratio: 1024 / 1536; transform: translateX(-50%); pointer-events: none; }
 .bridal-hero__subject img { object-fit: contain; }
 .bridal-hero__shadow { position: absolute; z-index: 1; left: 50%; bottom: .5%; width: 28%; height: 2%; transform: translateX(-50%); background: rgb(38 30 21 / 32%); border-radius: 50%; filter: blur(10px); }
-.bridal-hero__appointment { position: absolute; top: 51%; right: 11%; z-index: 4; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 15px; width: clamp(145px, 12.5vw, 200px); aspect-ratio: 1; border: 1px solid currentColor; border-radius: 50%; color: inherit; text-align: center; font-family: var(--font-editorial), Georgia, serif; font-size: clamp(24px, 2vw, 35px); font-weight: 400; line-height: .95; transition: background 350ms ease, transform 350ms ease; }
+.bridal-hero__appointment { position: absolute; top: 51%; right: 11%; z-index: 4; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 15px; width: clamp(145px, 12.5vw, 200px); aspect-ratio: 1; border: 1px solid currentColor; border-radius: 0; color: inherit; text-align: center; font-family: var(--font-editorial), Georgia, serif; font-size: clamp(24px, 2vw, 35px); font-weight: 400; line-height: .95; transition: background 350ms ease, transform 350ms ease; }
 .bridal-hero__appointment:hover { background: rgb(248 245 238 / 35%); transform: rotate(-5deg); }
 .bridal-hero__appointment svg { transition: transform 350ms ease; }
 .bridal-hero__appointment:hover svg { transform: translateX(7px); }
 .bridal-hero__bottom { position: absolute; z-index: 4; left: 3.5%; right: 3.5%; bottom: 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 9px; line-height: 1.4; letter-spacing: .14em; }
 .bridal-hero__edition,.bridal-hero__note { color: #fffaf1; text-shadow: 0 1px 5px #3e3027; text-transform: uppercase; }
-.bridal-hero__discover { display: flex; align-items: center; gap: 26px; padding: 10px 17px; border: 1px solid rgb(23 23 19 / 25%); border-radius: 30px; background: rgb(248 245 238 / 80%); font-size: 9px; letter-spacing: .08em; }
+.bridal-hero__discover { display: flex; align-items: center; gap: 26px; padding: 10px 17px; border: 1px solid rgb(23 23 19 / 25%); border-radius: 0; background: transparent; font-size: 9px; letter-spacing: .08em; }
 .bridal-hero__discover span { font-size: 17px; }
 .bridal-hero a:focus-visible { outline: 2px solid #171713; outline-offset: 6px; }
 .bridal-hero[data-parallax="on"] .bridal-hero__backdrop { transform: translate3d(var(--hero-bg-x,0px),var(--hero-bg-y,0px),0) scale(var(--hero-bg-scale,1.08)); will-change: transform; }

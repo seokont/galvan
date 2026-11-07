@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '../product-image';
 import Link from 'next/link';
 import type { CatalogProduct } from '../catalog-types';
 

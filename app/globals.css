@@ -1599,3 +1599,21 @@ body:has(.page-loader:not([hidden])) .screen-navigation {
   .login-form > input, .login-password input { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .header-account, .login-submit span { transition: none; } }
+
+/* Footer wordmark layout. Link reveal is handled by FooterMotion. */
+.footer-bottom .footer-wordmark {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1;
+  letter-spacing: -.025em;
+  padding: 8px 0;
+}
+.footer-bottom .footer-wordmark:hover { color: var(--foreground); }
+@media (max-width: 600px) {
+  .footer-bottom .footer-wordmark { font-size: 32px; margin-bottom: 12px; }
+}
+.product-image-frame { position: relative; display: inline-block; }
+.product-image-loader { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; background: #f5f1ea; color: #81705a; font-size: 11px; pointer-events: none; }
+.product-image-loader .footer-dance { position: relative; inset: auto; width: min(140px, 65%); height: auto; margin: 0; padding: 0; flex: none; }
+.product-image-loader .bride-illustration { display: block; width: 100%; height: auto; max-height: 180px; }

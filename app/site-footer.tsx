@@ -1,5 +1,6 @@
 import BrideAnimation from "./bride-animation";
 import Link from "next/link";
+import FooterMotion from "./footer-motion";
 
 const groups = [
   {
@@ -20,7 +21,7 @@ const groups = [
 
 export default function SiteFooter() {
   return (
-    <footer id="contacts" className="site-footer scroll-panel">
+    <FooterMotion>
       <div className="footer-main">
         <div className="footer-directory">
           {groups.map((group) => (
@@ -60,10 +61,12 @@ export default function SiteFooter() {
       </div>
 
       <div className="footer-bottom">
-        <Link className="footer-wordmark" href="/#home" aria-label="Atelier — home">Atelier</Link>
+        <Link className="footer-wordmark" href="/#home" aria-label="Atelier — home">
+          <span>Atelier</span>
+        </Link>
         <span className="footer-copyright">© 2026 Atelier</span>
         <a className="footer-back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a>
       </div>
-    </footer>
+    </FooterMotion>
   );
 }

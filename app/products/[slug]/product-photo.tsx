@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "../../product-image";
 import { useEffect, useRef, type PointerEvent } from "react";
 
 type Props = { src: string; name: string; index: number; onOpen: () => void };

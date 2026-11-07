@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '../../product-image';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 import type { CatalogDetail } from '../../catalog-types';
