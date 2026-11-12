@@ -24,18 +24,18 @@ async function proxy(request: NextRequest, {params}: {params:Promise<{path:strin
     || (/^enquiries\/\d+$/.test(route)&&method==='PATCH')
     || (/^products\/\d+$/.test(route)&&['GET','PATCH'].includes(method)) || (route==='media'&&method==='POST')
     || (/^images\/[a-f0-9]{64}\.(jpg|png|webp|gif)$/.test(route)&&method==='GET');
-  if (!allowed) return NextResponse.json({message:'Не найдено'},{status:404});
+  if (!allowed) return NextResponse.json({message:"Not found"},{status:404});
   const token=request.cookies.get(COOKIE)?.value;
-  if (!login && (!token || !/^[A-Za-z0-9_-]{43}$/.test(token))) return NextResponse.json({message:'Требуется вход администратора'},{status:401});
+  if (!login && (!token || !/^[A-Za-z0-9_-]{43}$/.test(token))) return NextResponse.json({message:"Admin sign in required"},{status:401});
   if (method!=='GET') {
     const expectedOrigin=process.env.ADMIN_PUBLIC_ORIGIN || request.nextUrl.protocol+'//'+request.headers.get('host');
-    if(request.headers.get('origin')!==expectedOrigin) return NextResponse.json({message:'Запрос с другого сайта запрещён'},{status:403});
+    if(request.headers.get('origin')!==expectedOrigin) return NextResponse.json({message:"Requests from another website are not allowed"},{status:403});
   }
   try {
     const url=new URL((process.env.BACKEND_URL||'http://127.0.0.1:3001').replace(/\/$/,'')+'/admin/'+route);
     if((route==='products'||route==='enquiries')&&method==='GET') for(const key of route==='enquiries'?['q','status','page']:['q','brand','visibility','page','limit']) {
       const values=request.nextUrl.searchParams.getAll(key);
-      if(values.length>1) return NextResponse.json({message:'Недопустимый запрос'},{status:400});
+      if(values.length>1) return NextResponse.json({message:"Invalid request"},{status:400});
       if(values[0]) url.searchParams.set(key,values[0]);
     }
     const headers=new Headers();
@@ -45,7 +45,7 @@ async function proxy(request: NextRequest, {params}: {params:Promise<{path:strin
     const upstream=await fetch(url,{method,headers,body,cache:'no-store',redirect:'error',signal:AbortSignal.timeout(30000)});
     const responseHeaders=new Headers({'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});
     if(!upstream.ok) {
-      let message='Ошибка сервера. Повторите попытку';
+      let message="Server error. Please try again";
       if(upstream.status<500) {const error=await upstream.json().catch(()=>null); if(typeof error?.message==='string') message=error.message;}
       const response=NextResponse.json({message},{status:upstream.status,headers:responseHeaders});
       if((upstream.status===401&&!login)||route==='auth/logout') response.cookies.set(COOKIE,'',{path:'/',maxAge:0});
@@ -62,7 +62,7 @@ async function proxy(request: NextRequest, {params}: {params:Promise<{path:strin
     if(route==='auth/logout') response.cookies.set(COOKIE,'',{path:'/',maxAge:0});
     return response;
   } catch(error) {
-    const response=NextResponse.json({message:error instanceof RangeError?'Файл или запрос слишком большой':'Сервер временно недоступен'},{status:error instanceof RangeError?413:503,headers:{'Cache-Control':'no-store'}});
+    const response=NextResponse.json({message:error instanceof RangeError?"The file or request is too large":"The server is temporarily unavailable"},{status:error instanceof RangeError?413:503,headers:{'Cache-Control':'no-store'}});
     if(route==='auth/logout')response.cookies.set(COOKIE,'',{path:'/',maxAge:0});
     return response;
   }

@@ -7,9 +7,9 @@ export async function adminApi<T>(path:string,options:RequestInit={}):Promise<T>
   if(options.body&&!(options.body instanceof FormData)) headers.set('Content-Type','application/json');
   const response=await fetch('/api/admin/'+path,{...options,headers,cache:'no-store'});
   if(!response.ok) {
-    const error=await response.json().catch(()=>({message:'Не удалось выполнить запрос'}));
+    const error=await response.json().catch(()=>({message:"Unable to complete the request"}));
     if(response.status===401) window.dispatchEvent(new Event('atelier-admin-session-expired'));
-    throw new AdminApiError(error.message||'Ошибка запроса',response.status);
+    throw new AdminApiError(error.message||"Request failed",response.status);
   }
   return response.json() as Promise<T>;
 }
