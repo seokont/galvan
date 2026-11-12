@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-export default function SiteHeader({ catalog = false, contact = false, about = false, login = false, editorial = false }: { catalog?: boolean; contact?: boolean; about?: boolean; login?: boolean; editorial?: boolean }) {
+export default function SiteHeader({ catalog = false, contact = false, about = false, login = false, favourites = false, editorial = false }: { catalog?: boolean; contact?: boolean; about?: boolean; login?: boolean; favourites?: boolean; editorial?: boolean }) {
   const [open, setOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -58,7 +58,8 @@ export default function SiteHeader({ catalog = false, contact = false, about = f
       <nav id="site-menu" className="site-nav" aria-label="Main navigation"
         data-open={open} aria-hidden={!open} inert={!open}>
         <a href={catalog ? "/#home" : "#home"} aria-current={!catalog ? "page" : undefined} onClick={() => setOpen(false)}>Home</a>
-        <Link href="/products" aria-current={catalog && !contact && !about && !login ? "page" : undefined} onClick={() => setOpen(false)}>Collections</Link>
+        <Link href="/products" aria-current={catalog && !contact && !about && !login && !favourites ? "page" : undefined} onClick={() => setOpen(false)}>Collections</Link>
+        <Link href="/favourites" aria-current={favourites ? "page" : undefined} onClick={() => setOpen(false)}>My favourites</Link>
         <Link href="/about" aria-current={about ? "page" : undefined} onClick={() => setOpen(false)}>About</Link>
         <Link href="/contact" aria-current={contact ? "page" : undefined} onClick={() => setOpen(false)}>Contact</Link>
         <Link href="/admin/login" aria-current={login ? "page" : undefined} onClick={() => setOpen(false)}>Admin sign in</Link>

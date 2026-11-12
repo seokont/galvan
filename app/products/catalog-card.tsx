@@ -1,9 +1,10 @@
+import FavouriteButton from '../favourite-button';
 import Image from '../product-image';
 import Link from 'next/link';
 import type { CatalogProduct } from '../catalog-types';
 
 export default function CatalogCard({ product, eager = false }: { product: CatalogProduct; eager?: boolean }) {
-  return <Link className="catalog-card" href={`/products/${product.slug}`} aria-label={`${product.brand.name}, ${product.name}. View piece`} prefetch={false}>
+  return <div className="catalog-card"><Link className="catalog-card__link" href={`/products/${product.slug}`} aria-label={`${product.brand.name}, ${product.name}. View piece`} prefetch={false}>
     {product.images[0] ? <Image src={product.images[0]} alt={`${product.brand.name} ${product.name}`} fill unoptimized sizes="(max-width: 600px) 50vw, (max-width: 1024px) 33vw, 25vw" loading={eager ? 'eager' : 'lazy'} />
       : <span className="catalog-no-photo">Photography coming soon</span>}
     <div className="catalog-card__copy">
@@ -11,5 +12,5 @@ export default function CatalogCard({ product, eager = false }: { product: Catal
       <h2>{product.name}</h2>
       <span className="catalog-card__action">View piece <span aria-hidden="true">↗</span></span>
     </div>
-  </Link>;
+  </Link><FavouriteButton product={product} className="catalog-card__save" /></div>;
 }

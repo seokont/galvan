@@ -1,5 +1,6 @@
 'use client';
 
+import FavouriteButton from '../../favourite-button';
 import Image from '../../product-image';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
@@ -9,7 +10,6 @@ import ProductPhoto from './product-photo';
 export default function ProductDetail({ product }: { product: CatalogDetail }) {
   const [photo, setPhoto] = useState(0);
   const [size, setSize] = useState('');
-  const [saved, setSaved] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
   const images = product.images;
@@ -51,9 +51,7 @@ export default function ProductDetail({ product }: { product: CatalogDetail }) {
     </div>
     <section className="product-information" aria-labelledby="product-name">
       <div className="product-information__top"><Link href={'/products?brand=' + product.brand.slug}>{product.brand.name}</Link>
-        <button type="button" className="product-save" aria-label={saved ? 'Remove from favourites' : 'Save to favourites'} aria-pressed={saved} onClick={() => setSaved(!saved)}>
-          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" fill={saved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.2" /></svg>
-        </button>
+        <FavouriteButton product={product} />
       </div>
       {product.collections.length > 0 && <p className="product-collection-links">{product.collections.map(c => <Link key={c.key} href={'/products?' + new URLSearchParams({ brand: product.brand.slug, collection: c.key })}>{c.name}</Link>)}</p>}
       <h1 id="product-name">{product.name}</h1>

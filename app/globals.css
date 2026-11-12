@@ -125,13 +125,6 @@ h1, h2, h3 {
   opacity: 1;
 }
 
-.site-header:hover .site-wordmark,
-.site-header:focus-within .site-wordmark {
-  color: var(--background);
-}
-
-.site-header:hover .menu-toggle span,
-.site-header:focus-within .menu-toggle span,
 .menu-toggle[aria-expanded="true"] span {
   background: var(--background);
 }
@@ -1197,7 +1190,7 @@ body:has(.page-loader:not([hidden])) .screen-navigation {
 .catalog-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; padding: 0; margin: 0; width: 100%; }
 .catalog-card { position: relative; display: block; aspect-ratio: 2 / 3; overflow: hidden; isolation: isolate; background: #e6dfd4; }
 .catalog-card img { object-fit: cover; filter: var(--film-filter); transition: transform 650ms cubic-bezier(.22,1,.36,1), filter 350ms ease; }
-.catalog-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgb(23 22 19 / 60%)); pointer-events: none; }
+.catalog-card__link::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgb(23 22 19 / 60%)); pointer-events: none; }
 .catalog-card__copy { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding: clamp(16px, 2vw, 32px); color: var(--background); text-shadow: 0 1px 3px rgb(0 0 0 / 40%), 0 2px 10px rgb(0 0 0 / 20%); }
 .catalog-card__code { display: block; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
 .catalog-card h2 { margin-top: 6px; font-size: clamp(28px, 3vw, 46px); line-height: 1.1; }
@@ -1552,7 +1545,6 @@ body:has(.page-loader:not([hidden])) .screen-navigation {
 .about-heritage__copy .contact-collection-link { align-self: center; }
 
 .header-account { position: absolute; z-index: 2; top: 50%; right: calc(var(--menu-right) + 56px); transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; color: var(--foreground); transition: color 250ms ease, opacity 200ms ease; }
-.site-header:hover .header-account, .site-header:focus-within .header-account { color: var(--background); }
 .header-account:focus-visible { outline: 1px solid currentColor; outline-offset: 2px; }
 .site-header:has(.menu-toggle[aria-expanded="true"]) .header-account { visibility: hidden; opacity: 0; }
 .login-layout { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100dvh - var(--header-height)); }
