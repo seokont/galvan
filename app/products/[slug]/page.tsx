@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { getCatalog, getProduct } from '../../catalog-server';
 import SiteHeader from '../../site-header';
 import SiteFooter from '../../site-footer';
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   try {
     const product = await getProduct(slug);
-    return { title: product ? product.name + ' · ' + product.brand.name + ' | Atelier' : 'Piece not found | Atelier' };
+    return { title: product ? product.name + ' · ' + product.brand.name + ' | Atelier' : 'Piece not found | Atelier', ...(product?{alternates:{canonical:'https://store.fashiongroup.online/products/'+product.slug}}:{}) };
   } catch {
     return { title: 'Collection | Atelier' };
   }
@@ -31,6 +31,7 @@ async function ProductContent({ params }: Props) {
     return <div className="catalog-message" role="alert"><h1>The collection is temporarily unavailable.</h1><Link href="/products">Return to collections</Link></div>;
   }
   if (!product) notFound();
+  if (product.slug !== slug) permanentRedirect('/products/' + product.slug);
   const related = await getCatalog(new URLSearchParams({ brand: product.brand.slug, limit: '5' })).catch(() => null);
   return <>
     <nav className="product-breadcrumb" aria-label="Breadcrumb">
