@@ -20,7 +20,8 @@ async function proxy(request: NextRequest, {params}: {params:Promise<{path:strin
   const {path} = await params;
   const route = path.join('/'); const method = request.method;
   const login = route === 'auth/login' && method === 'POST';
-  const allowed = login || (route==='auth/logout'&&method==='POST') || (['auth/session','metadata','products'].includes(route)&&method==='GET')
+  const allowed = login || (route==='auth/logout'&&method==='POST') || (['auth/session','metadata','products','enquiries'].includes(route)&&method==='GET')
+    || (/^enquiries\/\d+$/.test(route)&&method==='PATCH')
     || (/^products\/\d+$/.test(route)&&['GET','PATCH'].includes(method)) || (route==='media'&&method==='POST')
     || (/^images\/[a-f0-9]{64}\.(jpg|png|webp|gif)$/.test(route)&&method==='GET');
   if (!allowed) return NextResponse.json({message:'Не найдено'},{status:404});
@@ -32,7 +33,7 @@ async function proxy(request: NextRequest, {params}: {params:Promise<{path:strin
   }
   try {
     const url=new URL((process.env.BACKEND_URL||'http://127.0.0.1:3001').replace(/\/$/,'')+'/admin/'+route);
-    if(route==='products'&&method==='GET') for(const key of ['q','brand','visibility','page','limit']) {
+    if((route==='products'||route==='enquiries')&&method==='GET') for(const key of route==='enquiries'?['q','status','page']:['q','brand','visibility','page','limit']) {
       const values=request.nextUrl.searchParams.getAll(key);
       if(values.length>1) return NextResponse.json({message:'Недопустимый запрос'},{status:400});
       if(values[0]) url.searchParams.set(key,values[0]);

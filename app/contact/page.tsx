@@ -7,7 +7,7 @@ import ContactEnquiry from "./contact-enquiry";
 
 export const metadata: Metadata = {
   title: "Contact | Atelier",
-  description: "Get in touch with Atelier. Explore our bridal collections and prepare your enquiry.",
+  description: "Get in touch with Atelier. Explore our bridal collections and send your enquiry.",
 };
 
 export default function ContactPage() {
@@ -30,7 +30,7 @@ export default function ContactPage() {
       </section>
       <section className="contact-enquiry" aria-labelledby="contact-enquiry-title">
         <div className="contact-enquiry__intro"><p className="contact-eyebrow">A note to Atelier</p><h2 id="contact-enquiry-title">We’d love to<br />hear from you.</h2>
-          <p>Our contact details are coming soon. In the meantime, prepare and copy your enquiry here, ready for when we’re in touch.</p>
+          <p>Tell us about the dress, a fitting, or anything you’d like to know. Send your enquiry and our team will be in touch.</p>
         </div>
         <ContactEnquiry />
       </section>
@@ -38,7 +38,7 @@ export default function ContactPage() {
         <div><p className="contact-eyebrow">A little guidance</p><h2 id="contact-faq-title">Before you ask</h2></div>
         <div>
           <details><summary>Where can I explore the dresses?<span aria-hidden="true">+</span></summary><p>Browse our <Link href="/products">bridal collection</Link> and filter by silhouette. Each dress has its own photographs, materials and size information.</p></details>
-          <details><summary>Can I arrange a fitting?<span aria-hidden="true">+</span></summary><p>Appointment and boutique contact details will be published here when available. For now, you can view the original dress on Galvan Sposa through its product page.</p></details>
+          <details><summary>Can I arrange a fitting?<span aria-hidden="true">+</span></summary><p>Choose “An appointment” in the form above and tell us your preferred date. Our team will contact you to discuss availability.</p></details>
           <details><summary>How do I choose my size?<span aria-hidden="true">+</span></summary><p>Each product page lists the EU size range supplied by the brand. Confirm measurements, fit and availability with your bridal boutique.</p></details>
         </div>
       </section>
