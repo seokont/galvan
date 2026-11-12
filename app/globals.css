@@ -120,11 +120,6 @@ h1, h2, h3 {
   transition: opacity 250ms ease;
 }
 
-.site-header:hover::before,
-.site-header:focus-within::before {
-  opacity: 1;
-}
-
 .menu-toggle[aria-expanded="true"] span {
   background: var(--background);
 }
