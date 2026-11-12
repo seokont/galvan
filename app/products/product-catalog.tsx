@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
 import type { CatalogFacets, CatalogPage } from '../catalog-types';
 import CatalogCard from './catalog-card';
 
@@ -61,16 +59,9 @@ export default function ProductCatalog() {
 
   return <>
     <div className="catalog-intro">
-      <div className="catalog-intro__detail catalog-intro__detail--lace" aria-hidden="true"><Image src="/assets/about/serena.jpg" alt="" fill sizes="(max-width: 700px) 24vw, 180px" /></div>
-      <div className="catalog-intro__text">
       <p className="catalog-eyebrow">The bridal edit</p>
       <h1>Our collections</h1>
-      <p className="catalog-intro__description">Explore the brands. Find the piece that feels like you.</p>
-      <nav className="catalog-intro__brands" aria-label="Explore bridal brands">
-        {(facets?.brands ?? [{ slug: 'galvan', name: 'Galvan Sposa' }, { slug: 'aveline', name: 'Aveline Bridal' }, { slug: 'serena', name: 'Serena Bridal' }]).map(item => <Link key={item.slug} href={'/products?brand=' + encodeURIComponent(item.slug)} aria-current={brand === item.slug ? 'true' : undefined} onClick={event => { if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) { event.preventDefault(); update('brand', item.slug); } }}>{item.name}</Link>)}
-      </nav>
-      </div>
-      <div className="catalog-intro__detail catalog-intro__detail--silk" aria-hidden="true"><Image src="/assets/about/aveline.jpg" alt="" fill sizes="(max-width: 700px) 24vw, 180px" /></div>
+      <p>Explore the brands. Find the piece that feels like you.</p>
     </div>
     <div className="catalog-toolbar catalog-toolbar--odoo">
       <div className="catalog-selects">
