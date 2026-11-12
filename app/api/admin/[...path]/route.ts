@@ -20,7 +20,7 @@ async function proxy(request: NextRequest, {params}: {params:Promise<{path:strin
   const {path} = await params;
   const route = path.join('/'); const method = request.method;
   const login = route === 'auth/login' && method === 'POST';
-  const allowed = login || (route==='auth/logout'&&method==='POST') || (['auth/session','metadata','products','enquiries'].includes(route)&&method==='GET')
+  const allowed = (route==='catalog-sync'&&['GET','POST'].includes(method)) || login || (route==='auth/logout'&&method==='POST') || (['auth/session','metadata','products','enquiries'].includes(route)&&method==='GET')
     || (/^enquiries\/\d+$/.test(route)&&method==='PATCH')
     || (/^products\/\d+$/.test(route)&&['GET','PATCH'].includes(method)) || (route==='media'&&method==='POST')
     || (/^images\/[a-f0-9]{64}\.(jpg|png|webp|gif)$/.test(route)&&method==='GET');
